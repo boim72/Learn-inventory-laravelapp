@@ -1,0 +1,129 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\BarangMasuk;
+use App\Models\barang;
+use App\Models\Supplier;
+use App\Http\Requests\StoreBarangMasukRequest;
+use Illuminate\Http\Request;
+use App\Http\Requests\UpdateBarangMasukRequest;
+
+class BarangMasukController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+        return view('/barangmasuk.index', [
+            'title' => 'Inventori | Barang Masuk',
+            'barangmasuk' => BarangMasuk::all()
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+        return view('/barangmasuk.create', [
+            'title' => 'Inventory | Tambah Data',
+            'barang' => barang::all(),
+            'supplier' => Supplier::all()
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    // public function store(StoreBarangMasukRequest $StoreBarangMasukRequest)
+    // {
+    //     //
+    //     dd($StoreBarangMasukRequest);
+    // }
+    public function store(Request $request)
+    {
+        //
+        // dd($request);
+        $Validasi = $request->validate([
+            'tanggal_masuk' => 'required',
+            'id_barang' => 'required',
+            'id_supplier' => 'required',
+            'jumlah_masuk' => 'required',
+            'harga_masuk' => 'required',
+            // 'nama_barang' => 'nullable'
+        ]);
+
+
+        // if ($barangToUpdate) {
+        //     $update = true;
+        //     $barangToUpdate->stok += $request->jumlah_masuk;
+        //     $barangToUpdate->save();
+        // }
+        BarangMasuk::create($Validasi);
+        // $data =  barang::all();
+        // foreach ($data as $data) {
+        //     # code...
+        //     // if ($data->id = $request->id_barang) {
+        //     // barang::where($data->id = $request->id_barang)
+        //     //     ->update(['stok' => $data->stok + $request->jumlah_masuk]);
+
+        //     // }
+        // }
+        barang::where('id', $request->id_barang)
+            ->update(['stok' => barang::raw('stok + ' . $request->jumlah_masuk)]);
+
+
+        return redirect('/barangmasuk')->with('success', 'Data Berhasil di Tambahkan');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(BarangMasuk $barangMasuk)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(BarangMasuk $BarangMasuk, $request)
+    {
+        //
+        // dd($BarangMasuk);
+        // dd($request);
+
+        return view('/barangmasuk.edit', [
+            'title' => 'Inventory | Barang Masuk',
+            'barangmasuk' => $BarangMasuk,
+            'barang' => barang::all(),
+            'supplier' => Supplier::all()
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateBarangMasukRequest $request, BarangMasuk $barangMasuk)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(BarangMasuk $barangMasuk)
+    {
+        //
+        dd($barangMasuk);
+
+        BarangMasuk::destroy($barangMasuk->id);
+        // barang::where('id', $barangMasuk->id_barang)
+        //     ->update(['stok' => barang::raw('stok -' . $barangMasuk->jumlah_masuk)]);
+        return redirect('/barangmasuk')->with('success', 'data berhasil di hapus');
+    }
+}
