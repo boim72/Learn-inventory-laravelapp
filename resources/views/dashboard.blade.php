@@ -20,8 +20,34 @@
                 </ul>
               </nav>
             </div>
+
             <div class="row">
-              <div class="col-md-4 stretch-card grid-margin">
+
+              @can('iniAdmin')
+                  
+                @if (auth()->user()->role == 'admin')
+                    <div class="col-md-3 stretch-card grid-margin">
+                @else
+                    <div class="col-md-4 stretch-card grid-margin">
+                @endif
+                  <div class="card bg-gradient-primary card-img-holder text-white">
+                    <div class="card-body">
+                      <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                      <a href="/user" class="text-decoration-none text-light"> <h4 class="font-weight-normal mb-3">Jumlah User<i class="mdi mdi-chart-line mdi-24px float-right"></i></a>
+                      </h4>
+                      <h2 class="mb-5">{{ auth()->user()->count('id') }}</h2>
+                      {{-- <h6 class="card-text">Increased by 60%</h6> --}}
+                    </div>
+                  </div>
+                </div>
+
+              @endcan
+
+              @if (auth()->user()->role == 'admin')
+                  <div class="col-md-3 stretch-card grid-margin">
+              @else
+                  <div class="col-md-4 stretch-card grid-margin">
+              @endif
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
@@ -32,7 +58,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 stretch-card grid-margin">
+              @if (auth()->user()->role == 'admin')
+                  <div class="col-md-3 stretch-card grid-margin">
+              @else
+                  <div class="col-md-4 stretch-card grid-margin">
+              @endif
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
@@ -43,7 +73,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 stretch-card grid-margin">
+              @if (auth()->user()->role == 'admin')
+                  <div class="col-md-3 stretch-card grid-margin">
+              @else
+                  <div class="col-md-4 stretch-card grid-margin">
+              @endif
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
@@ -56,6 +90,15 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Traffic Sources</h4>
+                    <canvas id="traffic-chart"></canvas>
+                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                  </div>
+                </div>
+              </div>
               <div class="col-md-7 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
@@ -64,15 +107,6 @@
                       <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
                     </div>
                     <canvas id="visit-sale-chart" class="mt-4"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Traffic Sources</h4>
-                    <canvas id="traffic-chart"></canvas>
-                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
                   </div>
                 </div>
               </div>

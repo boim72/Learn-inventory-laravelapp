@@ -305,6 +305,13 @@
                 <i class="mdi mdi-arrow-top-right menu-icon"></i>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('user*') ? 'active' : '' }}" href="/user">
+                <span class="menu-title">User</span>
+                {{-- <i class="mdi mdi-table-large menu-icon"></i> --}}
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
+            </li>
             @endcan
             @can('iniPemilik')
              <li class="nav-item">
@@ -319,6 +326,13 @@
                   <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan/cetakout') ? 'active' : ''}}" href="/laporan.cetakout">Laporan Keluar</a></li>
                  </ul>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {{ Request::is('user*') ? 'active' : '' }}" href="/user">
+                <span class="menu-title">User</span>
+                {{-- <i class="mdi mdi-table-large menu-icon"></i> --}}
+                <i class="mdi mdi-account-multiple menu-icon"></i>
+              </a>
             </li>   
             @endcan
             {{-- 

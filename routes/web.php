@@ -93,5 +93,5 @@ Route::middleware(['iniAdminOrPemilik'])->group(function () {
     Route::get('/laporan/cetakout/{tglawal}/{tglakhir}', [laporanController::class, 'cetakoutpdf']);
 });
 
-Route::resource('/user', userController::class)->middleware('iniAdmin');
+Route::resource('/user', userController::class)->middleware('auth');
 Route::put('/user/{id}/update-role', [userController::class, 'updateRole'])->name('user.updateRole')->middleware('iniAdmin');
