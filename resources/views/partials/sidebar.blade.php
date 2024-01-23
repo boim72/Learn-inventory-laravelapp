@@ -257,7 +257,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ Request::is('bahanbaku*') ? 'active' : '' }} " data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link {{ Request::is('bahanbaku/*') ? 'active' : '' }} " data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
               {{-- <a class="nav-link{{ Request::is('kategory*')||('barang*') ? 'active' : '' }}" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic"> --}}
                 <span class="menu-title">Manage Bahan Baku</span>
                 <i class="menu-arrow"></i>
@@ -265,8 +265,8 @@
               </a>
               <div class="collapse" id="ui-basic2">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link {{ Request::is('/bahanbaku*') ? 'active' : ''}}" href="/bahanbaku">Bahan baku</a></li>
-                  <li class="nav-item"> <a class="nav-link {{ Request::is('/bahanbakuin*') ? 'active' : ''}}" href="/bahanbakuin">Bahan baku masuk</a></li>
+                  <li class="nav-item"> <a class="nav-link {{ $sidebar == 'bahanbaku' ? 'active' : '' }}" href="/bahanbaku">Bahan baku</a></li>
+                  <li class="nav-item"> <a class="nav-link {{ $sidebar == 'masuk' ? 'active' : '' }}" href="/bahanbakuin">Bahan baku masuk</a></li>
                 </ul>
               </div>
             </li>
@@ -279,8 +279,8 @@
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link {{ Request::is('/kategori*') ? 'active' : ''}}" href="/kategori">Kategory</a></li>
-                  <li class="nav-item"> <a class="nav-link {{ Request::is('barang*') ? 'active' : ''}}" href="/barang">barang</a></li>
+                  <li class="nav-item"> <a class="nav-link {{ Request::is('/kategori/*') ? 'active' : ''}}" href="/kategori">Kategory</a></li>
+                  <li class="nav-item"> <a class="nav-link {{ Request::is('/barang/*') ? 'active' : ''}}" href="/barang">barang</a></li>
                   <li class="nav-item"> <a class="nav-link {{ Request::is('/deskripsibarang*') ? 'active' : ''}}" href="/deskripsibarang">Deskripsi Barang</a></li>
                   {{-- <li class="nav-item"> <a class="nav-link {{ Request::is('satuan*') ? 'active' : ''}}" href="/satuan">Satuan</a></li> --}}
                 </ul>

@@ -5,11 +5,11 @@
 <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Basic Tables </h3>
+              <h3 class="page-title"> Table Bahanbaku Masuk </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                  <li class="breadcrumb-item active" aria-current="page">Table Bahanbaku Masuk</li>
                 </ol>
               </nav>
             </div>
@@ -22,10 +22,10 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Table Bahan Baku Masuk</h4>
+                    {{-- <h4 class="card-title">Table Bahan Baku Masuk</h4> --}}
     
                         <a href="/bahanbakuin/create" ><span class="badge badge-sm bg-gradient-primary"> Tambah Data</span></a>
-
+                  <div class="table-resposive">
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -67,6 +67,7 @@
                         
                       </tbody>
                     </table>
+                  </div>
                   </div>
                 </div>
               </div>

@@ -5,11 +5,11 @@
 <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Basic Tables </h3>
+              <h3 class="page-title"> Tables Supplier </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                  <li class="breadcrumb-item"><a href="/supplier">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Tables Supplier</li>
                 </ol>
               </nav>
             </div>
@@ -70,20 +70,36 @@
                   </div>
                 </div>
               </div> --}}
+              <style>
+                .ellipsis {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    max-width: 150px; /* Sesuaikan lebar maksimum sesuai kebutuhan */
+                }
+
+                .ellipsis:hover {
+                    white-space: normal;
+                    overflow: visible;
+                    max-width: none;
+                }
+            </style>
+
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Table Categories</h4>
+                    {{-- <h4 class="card-title">Table Categories</h4> --}}
     
                         <a href="/supplier/create" ><span class="badge badge-sm bg-gradient-primary"> Tambah Data</span></a>
-                    <table class="table table-hover">
+                     <div class="table-responsive">
+                        <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>No</th>
                           <th>Nama supplier</th>
                           <th>No Telpon</th>
                           <th>Email</th>
-                          <th>Alamat</th>
+                          <th class="ellipsis">Alamat</th>
                           <th class="text-center">Acion</th>
                           {{-- <th>Sale</th>
                           <th>Status</th> --}}
@@ -124,75 +140,14 @@
                         </tr> --}}
                         
                       </tbody>
-                    </table>
+                        </table>
+                     </div>
                   </div>
                 </div>
               </div>
             
 
-              <!-- Modal Create -->
-              <div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="card">
-                        <div class="card-body">
-                          <form class="forms-sample" action="/supplier" method="POST" enctype="multipart/form-data">
-                            @csrf  
-                            <div class="form-group row">
-                                <label for="nama_supplier" class="col-sm-4 col-form-label">Nama supplier</label>
-                                <div class="col-sm-8">
-                                  <input type="text" class="form-control @error('nama_supplier') is-invalid @enderror" id="nama_supplier" name="nama_supplier" placeholder="Nama supplier">
-                                @error('nama_supplier')    
-                                   <div class="invalid-feedback">
-                                    {{ $message }}
-                                  </div>
-                                @enderror
-                                </div>
-                              </div>
-                              
-                              <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                              <button class="btn btn-light">Cancel</button>
-                            </form>
-                        </div>
-                      </div>
-                      {{-- <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Horizontal Form</h4>
-                            <p class="card-description"> Horizontal form layout </p>
-                            <form class="forms-sample">
-                              <div class="form-group row">
-                                <label for="exampleInputNama supplier2" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Username">
-                                </div>
-                              </div>
-                              <div class="form-group row">
-                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
-                                </div>
-                              </div>
-                              
-                              <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                              <button class="btn btn-light">Cancel</button>
-                            </form>
-                          </div>
-                        </div>
-                    </div> --}}
-                    </div>
-                    {{-- <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div> --}}
-                  </div>
-                </div>
-              </div>
+             
               
               {{-- <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">

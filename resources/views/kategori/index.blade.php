@@ -5,11 +5,11 @@
 <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Basic Tables </h3>
+              <h3 class="page-title"> Table Categories </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                  <li class="breadcrumb-item active" aria-current="page">Table Categories</li>
                 </ol>
               </nav>
             </div>
@@ -70,22 +70,23 @@
                   </div>
                 </div>
               </div> --}}
-              <div class="col-lg-6 grid-margin stretch-card">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Table Categories</h4>
+                    {{-- <h4 class="card-title">Table Categories</h4> --}}
     
                         <a href="/kategori/create" ><span class="badge badge-sm bg-gradient-primary"> Tambah Data</span></a>
                     <!-- Button trigger modal -->
                         {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#CreateModal">
                         <span class="badge badge-sm bg-gradient-primary border-0 d-inline"> Tambah Data</span>
                         </button> --}}
+                   <div class="table-resposive">                     
                     <table class="table table-hover">
                       <thead>
                         <tr>
                             <th>No</th>
                           <th>Nama Categories</th>
-                          <th class="text-center">Acion</th>
+                          <th >Acion</th>
                           {{-- <th>Sale</th>
                           <th>Status</th> --}}
                         </tr>
@@ -119,6 +120,7 @@
                         
                       </tbody>
                     </table>
+                   </div>
                   </div>
                 </div>
               </div>

@@ -12,7 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        // \App\Models\Supplier::factory(5)->create();
+        \App\Models\Kategori::factory(5)->create();
+        \App\Models\BahanBaku::factory(10)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Test_staf',
@@ -33,12 +36,14 @@ class DatabaseSeeder extends Seeder
         //     'images' => 'satu.jpg',
         //     'id_kategori' => '1'
         // ]);
+
         \App\Models\kategori::factory()->create([
             'nama_kategori' => 'furniture',
         ]);
         \App\Models\kategori::factory()->create([
             'nama_kategori' => 'hiasan',
         ]);
+
         \App\Models\Satuan::factory()->create([
             'nama_satuan' => 'pcs',
         ]);

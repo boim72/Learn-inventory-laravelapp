@@ -17,6 +17,7 @@ class bahanbakuController extends Controller
         //
         return view('/bahanbaku.index', [
             'title' => 'Inventory | Bahan Baku',
+            'sidebar' => 'bahanbaku',
             'bahanbaku' => bahanbaku::all(),
             'supplier' => Supplier::all()
         ]);
@@ -30,6 +31,7 @@ class bahanbakuController extends Controller
         //
         return view('/bahanbaku.create', [
             'title' => 'Inventory | Tambah data',
+            'sidebar' => 'bahanbaku',
             'bahanbaku' => bahanbaku::all(),
             'supplier' => Supplier::all()
         ]);
@@ -75,6 +77,7 @@ class bahanbakuController extends Controller
         //
         return view('/bahanbaku.edit', [
             'title' => 'Inventori | Edit Data',
+            'sidebar' => 'bahanbaku',
             'bahanbaku' => $bahanbaku,
             'supplier' => Supplier::all()
         ]);

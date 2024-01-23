@@ -51,10 +51,10 @@
                 <div class="card bg-gradient-danger card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <a href="/barang" class="text-decoration-none text-light"> <h4 class="font-weight-normal mb-3">Stok Barang<i class="mdi mdi-chart-line mdi-24px float-right"></i></a>
+                    <a href="/bahanbaku" class="text-decoration-none text-light"> <h4 class="font-weight-normal mb-3">Jenis Bahan<i class="mdi mdi-chart-line mdi-24px float-right"></i></a>
                     </h4>
-                    <h2 class="mb-5">{{ $barang->count('stok') }}</h2>
-                    {{-- <h6 class="card-text">Increased by 60%</h6> --}}
+                    <h2 class="mb-5">{{ $bahan->count('id') }}</h2>
+                    <h6 class="card-text">Stok Bahan {{ $bahan->sum('stok') }}</h6>
                   </div>
                 </div>
               </div>
@@ -66,10 +66,10 @@
                 <div class="card bg-gradient-info card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <a href="#" class="text-decoration-none text-light"><h4 class="font-weight-normal mb-3">Barang Masuk <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                    <a href="#" class="text-decoration-none text-light"><h4 class="font-weight-normal mb-3">Jenis Barang<i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                     </h4></a>
-                    <h2 class="mb-5">{{ $barangin->count('id') }}</h2>
-                    <h6 class="card-text">Decreased by 10%</h6>
+                    <h2 class="mb-5">{{ $barang->count('id') }}</h2>
+                    <h6 class="card-text">Stok Barang {{ $barang->sum('stok') }}</h6>
                   </div>
                 </div>
               </div>
@@ -81,10 +81,10 @@
                 <div class="card bg-gradient-success card-img-holder text-white">
                   <div class="card-body">
                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <a href="#" class="text-decoration-none text-light"> <h4 class="font-weight-normal mb-3">Barang Keluar<i class="mdi mdi-diamond mdi-24px float-right"></i>
+                    <a href="#" class="text-decoration-none text-light"> <h4 class="font-weight-normal mb-3">Jumlah Supplier<i class="mdi mdi-diamond mdi-24px float-right"></i>
                     </h4></a>
-                    <h2 class="mb-5">{{ $barangout->count('id') }}</h2>
-                    <h6 class="card-text">Increased by 5%</h6>
+                    <h2 class="mb-5">{{ $supplier->count('id') }}</h2>
+                    {{-- <h6 class="card-text">Increased by 5%</h6> --}}
                   </div>
                 </div>
               </div>

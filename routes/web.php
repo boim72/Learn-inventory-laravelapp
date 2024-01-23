@@ -16,6 +16,7 @@ use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\userController;
 use App\Http\Middleware\CheckRole;
+use App\Models\bahanbaku;
 use App\Models\bahanbakuin;
 use App\Models\barangin;
 use App\Models\BarangKeluar;
@@ -25,6 +26,7 @@ use App\Models\Satuan;
 use App\Models\barang;
 use App\Models\barangout;
 use App\Models\deskripsibarang;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +55,8 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard', [
             'title' => 'Inventory | Dashboard',
             'barang' => barang::all(),
+            'bahan' => bahanbaku::all(),
+            'supplier' => Supplier::all(),
             'barangin' => barangin::all(),
             'barangout' => barangout::all()
         ]);

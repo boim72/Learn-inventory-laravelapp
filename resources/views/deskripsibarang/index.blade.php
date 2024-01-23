@@ -5,11 +5,11 @@
 <div class="main-panel">
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Basic Tables </h3>
+              <h3 class="page-title"> Tabel Deskripsi Barang </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                  <li class="breadcrumb-item"><a href="/deskripsibarang">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Tabel Deskripsi Barang</li>
                 </ol>
               </nav>
             </div>
@@ -22,7 +22,7 @@
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card" >
                   <div class="card-body " class="auto">
-                    <h4 class="card-title">Tabel Deskripsi Barang</h4>
+                    {{-- <h4 class="card-title">Tabel Deskripsi Barang</h4> --}}
     
                         {{-- <a href="/deskripsibarang/create" ><span class="badge badge-sm bg-gradient-primary"> Tambah Data</span></a> --}}
                         <style>
