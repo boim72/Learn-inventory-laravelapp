@@ -93,8 +93,8 @@
                               white-space: nowrap; 
                           }
                       </style>
-                      <div class="table-resposive">
-                        <div class="table-resposive">
+                     
+                        <div class="table-responsive">
                           <table class="table table-hover table-custom">
                             <thead>
                               <tr>
@@ -156,7 +156,7 @@
                             </tbody>
                           </table>
                         </div>
-                      </div>
+                    
                   </div>
                 </div>
               </div>

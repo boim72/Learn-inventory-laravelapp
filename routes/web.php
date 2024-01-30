@@ -90,11 +90,14 @@ Route::middleware(['iniAdminOrStaf'])->group(function () {
 
 Route::middleware(['iniAdminOrPemilik'])->group(function () {
     // laporan 
+    Route::get('/laporan.cetakbahanin', [laporanController::class, 'cetakbahanin']);
+    Route::get('/laporan/cetakbahaninpdf/{start_date}/{end_date}', [laporanController::class, 'cetakbahaninpdf']);
+
     Route::get('/laporan.cetakin', [laporanController::class, 'cetakin']);
-    Route::get('/laporan/cetakin/{tglawal}/{tglakhir}', [laporanController::class, 'cetakinpdf']);
+    Route::get('/laporan/cetakinpdf/{tglawal}/{tglakhir}', [laporanController::class, 'cetakinpdf']);
 
     Route::get('/laporan.cetakout', [laporanController::class, 'cetakout']);
-    Route::get('/laporan/cetakout/{tglawal}/{tglakhir}', [laporanController::class, 'cetakoutpdf']);
+    Route::get('/laporan/cetakoutpdf/{tglawal}/{tglakhir}', [laporanController::class, 'cetakoutpdf']);
 });
 
 Route::resource('/user', userController::class)->middleware('auth');

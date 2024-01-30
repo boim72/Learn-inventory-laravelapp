@@ -15,20 +15,54 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Laporan Barang Keluar</h4>
-                    <div class="form-group row">
-                        <div class="col-sm-6">
-                            <label for="tglawal">Tanggal Awal</label>
-                            <input type="date" name="tglawal" id="tglawal" class="form-control" value="">
+                     <form action="/laporan.cetakout" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="date" class="form-control" name="tglawal">
+                            <input type="date" class="form-control" name="tglakhir">
+                            <button class="btn btn-primary" type="submit">Filter</button>
                         </div>
-                        <div class="col-sm-6">
-                            <label for="tglakhir">Tanggal Akhir</label>
-                            <input type="date" name="tglakhir" id="tglakhir" class="form-control" value="">
-                        </div>
+                    </form>
+
+                    <div>
+                      @if ($tglawal && $tglakhir)
+                      <!-- Tombol cetak data -->
+                      <div class="col-md-12 mb-3">
+                            <p @class(['text-start', 'font-bold' => true])>Laporan untuk tanggal {{ $tglawal }} hingga {{ $tglakhir }}</p>
+                              <a href="/laporan/cetakoutpdf/{{ $tglawal }}/{{ $tglakhir }}" target="_blank"
+                                  class="btn btn-success btn-icon-text">
+                                  Cetak Data <i class="mdi mdi-printer btn-icon-append"></i>
+                              </a>
+                            </div>
+                      @endif
                     </div>
-                     <div class=" col-md-6">
-                         <a href="" onclick="this.href='/laporan/cetakout/'+document.getElementById('tglawal').value + 
-                         '/' + document.getElementById('tglakhir').value" target="_blank" class="btn btn-gradient-info btn-icon-text">Print <i class="mdi mdi-printer btn-icon-append"></i></a>
-                    </div>
+
+                    <table border='1' class='table' width="100%">
+                        <thead>
+                            <tr>
+                                <th>Kode</th>
+                                <th>Tanggal Keluar</th>
+                                <th>Nama Barang</th>
+                                <th>Jumlah Keluar</th>
+                                <th>Harga Keluar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($cetakout as $keluar)
+                                <tr>
+                                    <td>{{ $keluar->kode_barang }}</td>
+                                    <td>{{ $keluar->tanggal_keluar }}</td>
+                                      @foreach ($barang as $item)    
+                                        @if ( $keluar->kode_barang == $item->kode_barang)                                  
+                                          <td>{{ $item->nama_barang }}</td>
+                                        @endif
+                                      @endforeach
+                                    <td>{{ $keluar->jumlah_keluar }}</td>
+                                    <td>{{ $keluar->harga_keluar }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
                   </div>
                 </div>
               </div>

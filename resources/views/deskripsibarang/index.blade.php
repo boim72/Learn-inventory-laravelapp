@@ -38,19 +38,19 @@
                               white-space: nowrap; 
                           }
                       </style>
-                        <div class="table-resposive">
+                        <div class="table-responsive">
                           <table class="table table-hover table-custom">
                             <thead>
                               <tr>
                                 <th colspan="2" class="text-center">Barang</th>
-                                <th  class="text-center">Jumlah Bahan  </th>
+                                <th  class="text-center" colspan="{{ count($bahanbaku) }}">Jumlah Bahan  </th>
                               </tr>
                               <tr>
                                 <th class="text-right">Acion</th>
                                 <th>Kode</th>
                                 <th>Nama barang</th>
                                 @foreach ($bahanbaku as $bahan)
-                                    <th>{{ $bahan->nama_bahan }}</th>
+                                    <th style="width: {{ 100 / count($bahanbaku) }}%">{{ $bahan->nama_bahan }}</th>
                                 @endforeach
 
                                 {{-- <th>Sale</th>

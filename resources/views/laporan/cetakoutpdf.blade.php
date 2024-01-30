@@ -153,12 +153,12 @@
             </tr>
         </table>
 
-        <h3>Laporan Barang Masuk</h3>
+        <h3>Laporan Barang Keluar</h3>
 <br>
         <table border='1' class='table' width="100%">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>kode</th>
                     <th>Tanggal Keluar</th>
                     <th>Nama Barang</th>
                     {{-- <th>Nama Supplier</th> --}}
@@ -169,7 +169,7 @@
             <tbody>
                 @foreach ($cetakout as $masuk)
                     <tr>
-                        <td><center>{{ $masuk->kode_barang }}</center></td>
+                        <td>{{ $masuk->kode_barang }}</></td>
                         <td>{{ $masuk->tanggal_keluar }}</td>
                             @foreach ($barang as $barangitem)
                                 @if ($masuk->kode_barang == $barangitem->kode_barang)    

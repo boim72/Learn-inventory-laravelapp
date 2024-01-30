@@ -24,20 +24,20 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Laporan Barang Masuk</h4>
-
-                    <form action="/laporan.cetakin" method="GET">
+                    <form action="/laporan.cetakbahanin" method="GET">
                         <div class="input-group mb-3">
-                            <input type="date" class="form-control" name="tglawal">
-                            <input type="date" class="form-control" name="tglakhir">
-                            <button class="btn btn-primary" type="submit">Filter</button>
+                            <input type="date" class="form-control" name="start_date">
+                            <input type="date" class="form-control" name="end_date">
+                            <button class="btn btn-primary" type="submit">FILTER</button>
+                         
                         </div>
                     </form>
-                          <div>
-                            @if ($tglawal && $tglakhir)
+                         <div>
+                            @if ($start_date && $end_date)
                             <!-- Tombol cetak data -->
                             <div class="col-md-12 mb-3">
-                                  <p @class(['text-start', 'font-bold' => true])>Laporan untuk tanggal {{ $tglawal }} hingga {{ $tglakhir }}</p>
-                                    <a href="/laporan/cetakinpdf/{{ $tglawal }}/{{ $tglakhir }}" target="_blank"
+                                  <p @class(['text-start', 'font-bold' => true])>Laporan untuk tanggal {{ $start_date }} hingga {{ $end_date }}</p>
+                                    <a href="/laporan/cetakbahaninpdf/{{ $start_date }}/{{ $end_date }}" target="_blank"
                                        class="btn btn-success btn-icon-text">
                                         Cetak Data <i class="mdi mdi-printer btn-icon-append"></i>
                                     </a>
@@ -47,23 +47,21 @@
                       <table border='1' class='table' width="100%">
                         <thead>
                             <tr>
-                                <th>Kode</th>
+                                <th>No</th>
                                 <th>Tanggal Masuk</th>
-                                <th>Nama Barang</th>
+                                <th>Nama Bahan</th>
+                                <th>Nama Supplier</th>
                                 <th>Jumlah Masuk</th>
                                 <th>Harga Masuk</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($cetakin as $masuk)
+                            @foreach ($bahanin as $masuk)
                                 <tr>
-                                    <td>{{ $masuk->kode_barang }}</td>
+                                    <td><center>{{ $loop->iteration }}</center></td>
                                     <td>{{ $masuk->tanggal_masuk }}</td>
-                                      @foreach ($barang as $item)    
-                                        @if ( $masuk->kode_barang == $item->kode_barang)                                  
-                                          <td>{{ $item->nama_barang }}</td>
-                                        @endif
-                                      @endforeach
+                                    <td>{{ $masuk->bahanbaku->nama_bahan }}</td>
+                                    <td>{{ $masuk->bahanbaku->supplier->nama_supplier }}</td>
                                     <td>{{ $masuk->jumlah_masuk }}</td>
                                     <td>{{ $masuk->harga_masuk }}</td>
                                 </tr>

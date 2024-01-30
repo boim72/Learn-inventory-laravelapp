@@ -230,12 +230,13 @@
             </li>
             <li class="nav-item">
               <a class="nav-link {{ Request::is('laporan*') ? 'active' : '' }} " data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
-                <span class="menu-title">Laporan Barang</span>
+                <span class="menu-title">Laporan</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
+                   <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan/cetakbahanin*') ? 'active' : ''}}" href="/laporan.cetakbahanin">Laporan Bahan Masuk</a></li>
                   <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan*') ? 'active' : ''}}" href="/laporan.cetakin">Laporan Masuk</a></li>
                   <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan/cetakout') ? 'active' : ''}}" href="/laporan.cetakout">Laporan Keluar</a></li>
                  </ul>
@@ -322,6 +323,7 @@
               </a>
               <div class="collapse" id="ui-basic1">
                 <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan/cetakbahanin*') ? 'active' : ''}}" href="/laporan.cetakbahanin">Laporan Barang Masuk</a></li>
                   <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan*') ? 'active' : ''}}" href="/laporan.cetakin">Laporan Masuk</a></li>
                   <li class="nav-item"> <a class="nav-link {{ Request::is('/laporan/cetakout') ? 'active' : ''}}" href="/laporan.cetakout">Laporan Keluar</a></li>
                  </ul>
